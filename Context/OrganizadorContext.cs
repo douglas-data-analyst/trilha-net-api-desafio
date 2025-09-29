@@ -7,7 +7,7 @@ namespace TrilhaApiDesafio.Context
     {
         public OrganizadorContext(DbContextOptions<OrganizadorContext> options) : base(options)
         {
-            
+
         }
 
         public DbSet<Tarefa> Tarefas { get; set; }
