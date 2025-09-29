@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TrilhaApiDesafio.Context;
 using TrilhaApiDesafio.Models;
+
 
 namespace TrilhaApiDesafio.Controllers
 {
@@ -19,7 +21,15 @@ namespace TrilhaApiDesafio.Controllers
         public IActionResult ObterPorId(int id)
         {
             // TODO: Buscar o Id no banco utilizando o EF
+            //R:    realizada a criação do buscar id.
+            var tarefa = _context.Tarefas.Find(id);
+
             // TODO: Validar o tipo de retorno. Se não encontrar a tarefa, retornar NotFound,
+            //R:    Realizada a criação do if para validar se a tarefa está vazia e se estiver
+            //      irá retornar NotFound
+            if (tarefa == null)
+                return NotFound();
+
             // caso contrário retornar OK com a tarefa encontrada
             return Ok();
         }
